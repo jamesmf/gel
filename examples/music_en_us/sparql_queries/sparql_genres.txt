@@ -1,0 +1,6 @@
+select distinct ?genre ?genreLabel where
+ {
+   ?genre wdt:P31 wd:Q188451 .
+   ?genre rdfs:label ?genreLabel .
+   FILTER((LANG(?genreLabel)) = "en")
+ }

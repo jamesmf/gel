@@ -1,0 +1,19 @@
+select distinct
+?band ?bandLabel
+?member ?memberLabel
+where
+ {
+   ?band wdt:P31 wd:Q215380 .
+   #?band wdt:P136 ?genre .
+   ?band rdfs:label ?bandLabel .
+   #?genre rdfs:label ?genreLabel .
+   #?band wdt:P264 ?reclabel .
+   ?band wdt:P495 ?country .
+   ?band wdt:P527 ?member .
+   ?member rdfs:label ?memberLabel .
+   FILTER(?country = wd:Q30)
+   #FILTER((LANG(?genreLabel)) = "en")
+   FILTER((LANG(?bandLabel)) = "en")
+   FILTER((LANG(?memberLabel)) = "en")
+ }
+#LIMIT 100000
